@@ -148,7 +148,7 @@ async def send_file(c, q, med, filename):
     try:
         await q.edit_message_reply_markup(
             InlineKeyboardMarkup([[InlineKeyboardButton("🌷 Uploading To Telegram....🌷", callback_data="down")]]))
-        await c.send_chat_action(chat_id=q.message.chat.id, action="upload_document")
+        await c.send_chat_action(chat_id=q.message.chat.id, action="upload_audio")
         # this one is not working
         await q.edit_message_media(media=med)
     except Exception as e:
