@@ -25,12 +25,10 @@ async def catch_youtube_fmtid(c, m):
         print(media_type)
         if media_type == 'audio':
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton(
-                "Audio", callback_data=f"{media_type}||{format_id}||{yturl}"), InlineKeyboardButton("Document",
-                                                                                                    callback_data=f"docaudio||{format_id}||{yturl}")]])
+                "🎵  Audio  🎵", callback_data=f"{media_type}||{format_id}||{yturl}")
         else:
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton(
-                "Video", callback_data=f"{media_type}||{format_id}||{yturl}"), InlineKeyboardButton("Document",
-                                                                                                    callback_data=f"docvideo||{format_id}||{yturl}")]])
+                "🎥  Video  🎥", callback_data=f"{media_type}||{format_id}||{yturl}")
 
         await m.edit_message_reply_markup(buttons)
 
@@ -74,7 +72,7 @@ async def catch_youtube_dldata(c, q):
     if not os.path.isdir(userdir):
         os.makedirs(userdir)
     await q.edit_message_reply_markup(
-        InlineKeyboardMarkup([[InlineKeyboardButton("Downloading...", callback_data="down")]]))
+        InlineKeyboardMarkup([[InlineKeyboardButton("⭕️ Downloading To Telegram.... ⭕️", callback_data="down")]]))
     filepath = os.path.join(userdir, filext)
     # await q.edit_message_reply_markup([[InlineKeyboardButton("Processing..")]])
 
@@ -106,7 +104,7 @@ async def catch_youtube_dldata(c, q):
         med = InputMediaAudio(
             media=filename,
             thumb=thumb_image_path,
-            caption=os.path.basename(filename),
+            caption=os.path.basename(filename)\n\n✅ Successfully Downloaded to MP3 🎵\n\n┏━━━━━━━━━━━━━━━━━┓\n\n┣★ 🌺 Requestor : {message.from_user.mention}\n\n┣★ 🌷 Downloaded by : [YT DOWNLOADER BOT 🎥](https://t.me/The_YouTube_Downloader_bot)\n\n┣★ [🍀 zoneunlimited 🍀](https://t.me/zoneunlimited)Corporation ©️\n\n┗━━━━━━━━━━━━━━━━━┛\n\n,
             title=os.path.basename(filename)
         )
 
@@ -119,7 +117,7 @@ async def catch_youtube_dldata(c, q):
             width=width,
             height=height,
             thumb=thumb_image_path,
-            caption=os.path.basename(filename),
+            caption=os.path.basename(filename)\n\n✅ Successfully Downloaded to MP4 🎥\n\n┏━━━━━━━━━━━━━━━━━┓\n\n┣★ 🌺 Requestor : {message.from_user.mention}\n\n┣★ 🌷 Downloaded by : [YT DOWNLOADER BOT 🎥](https://t.me/The_YouTube_Downloader_bot)\n\n┣★ [🍀 zoneunlimited 🍀](https://t.me/zoneunlimited)Corporation ©️\n\n┗━━━━━━━━━━━━━━━━━┛\n\n,
             supports_streaming=True
         )
 
@@ -149,7 +147,7 @@ async def send_file(c, q, med, filename):
     print(med)
     try:
         await q.edit_message_reply_markup(
-            InlineKeyboardMarkup([[InlineKeyboardButton("Uploading...", callback_data="down")]]))
+            InlineKeyboardMarkup([[InlineKeyboardButton("🌷 Uploading To Telegram....🌷", callback_data="down")]]))
         await c.send_chat_action(chat_id=q.message.chat.id, action="upload_document")
         # this one is not working
         await q.edit_message_media(media=med)
