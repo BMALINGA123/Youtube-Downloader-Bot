@@ -32,8 +32,7 @@ async def catch_youtube_fmtid(c, m):
 
         await m.edit_message_reply_markup(buttons)
 
-    else:
-        raise ContinuePropagation
+    
 
 
 @Client.on_callback_query()
