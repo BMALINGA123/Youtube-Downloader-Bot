@@ -104,7 +104,7 @@ async def catch_youtube_dldata(c, q):
         med = InputMediaAudio(
             media=filename,
             thumb=thumb_image_path,
-            caption=os.path.basename(filename)\n\n✅ Successfully Downloaded to MP3 🎵\n\n┏━━━━━━━━━━━━━━━━━┓\n\n┣★ 🌺 Requestor : {message.from_user.mention}\n\n┣★ 🌷 Downloaded by : [YT DOWNLOADER BOT 🎥](https://t.me/The_YouTube_Downloader_bot)\n\n┣★ [🍀 zoneunlimited 🍀](https://t.me/zoneunlimited)Corporation ©️\n\n┗━━━━━━━━━━━━━━━━━┛\n\n,
+            caption=os.path.basename(filename),
             title=os.path.basename(filename)
         )
 
